@@ -39,8 +39,8 @@ function Reading() {
 
   return (
     <div>
-      <button onClick={handleDraw}>Draw Cards</button>
-      <button onClick={handleReset}>Start Over</button>
+      <button onClick={handleDraw}>สุ่มไพ่</button>
+      <button onClick={handleReset}>เริ่มต้นใหม่</button>
       <div className="reading">
         {cards.map((card) => (
           <Card key={card.name} card={card} />

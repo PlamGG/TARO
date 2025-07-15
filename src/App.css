@@ -1,3 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Krub:wght@400;700&display=swap');
+
+body {
+  background-color: #1a1a1a;
+  color: #ffffff;
+  font-family: 'Krub', sans-serif;
+}
+
 .App {
   text-align: center;
 }
@@ -6,6 +14,7 @@
   background-color: #282c34;
   padding: 20px;
   color: white;
+  border-bottom: 2px solid #ff69b4;
 }
 
 .reading-types,
@@ -18,15 +27,33 @@
 .reading-frequency h2,
 .card-spreads h2 {
   margin-bottom: 10px;
+  color: #ff69b4;
 }
 
 .reading-types button,
 .reading-frequency button,
-.card-spreads button {
+.card-spreads button,
+button {
   margin: 5px;
   padding: 10px 20px;
   font-size: 16px;
   cursor: pointer;
+  background-color: #ff69b4;
+  color: #ffffff;
+  border: none;
+  border-radius: 20px;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.reading-types button:hover,
+.reading-frequency button:hover,
+.card-spreads button:hover,
+button:hover {
+  background-color: #ff85c1;
+  transform: scale(1.05);
 }
 
 .reading {
@@ -38,18 +65,30 @@
 }
 
 .card {
-  border: 1px solid #ccc;
+  background-color: #282c34;
+  border: 1px solid #ff69b4;
   padding: 20px;
   width: 200px;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 15px rgba(255, 105, 180, 0.3);
 }
 
 .card img {
   width: 100%;
+  border-radius: 5px;
 }
 
-button {
-  margin-top: 20px;
-  padding: 10px 20px;
-  font-size: 16px;
-  cursor: pointer;
+.card h2 {
+  color: #ff69b4;
+  font-size: 18px;
+  margin-top: 10px;
+}
+
+.card p {
+  font-size: 14px;
 }
