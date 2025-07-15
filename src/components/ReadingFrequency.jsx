@@ -1,11 +1,16 @@
 import React from 'react';
+import { FaCalendarDay, FaCalendarAlt } from 'react-icons/fa';
 
 function ReadingFrequency({ setReadingFrequency }) {
   return (
     <div className="reading-frequency">
-      <h2>Select a Reading Frequency</h2>
-      <button onClick={() => setReadingFrequency('daily')}>Daily</button>
-      <button onClick={() => setReadingFrequency('monthly')}>Monthly</button>
+      <h2>เลือกความถี่ในการดูดวง</h2>
+      <button onClick={() => setReadingFrequency('daily')}>
+        <FaCalendarDay /> รายวัน
+      </button>
+      <button onClick={() => setReadingFrequency('monthly')}>
+        <FaCalendarAlt /> รายเดือน
+      </button>
     </div>
   );
 }

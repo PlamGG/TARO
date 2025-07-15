@@ -6,7 +6,7 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <h1>Tarot Reading</h1>
+        <h1>เว็บดูดวงไพ่ทาโรต์</h1>
       </header>
       <main>
         <Reading />

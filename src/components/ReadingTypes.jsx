@@ -1,13 +1,22 @@
 import React from 'react';
+import { FaHeart, FaBriefcase, FaPiggyBank, FaFirstAid } from 'react-icons/fa';
 
 function ReadingTypes({ setReadingType }) {
   return (
     <div className="reading-types">
-      <h2>Select a Reading Type</h2>
-      <button onClick={() => setReadingType('love')}>Love</button>
-      <button onClick={() => setReadingType('work')}>Work</button>
-      <button onClick={() => setReadingType('finance')}>Finance</button>
-      <button onClick={() => setReadingType('health')}>Health</button>
+      <h2>เลือกประเภทการดูดวง</h2>
+      <button onClick={() => setReadingType('love')}>
+        <FaHeart /> ความรัก
+      </button>
+      <button onClick={() => setReadingType('work')}>
+        <FaBriefcase /> การงาน
+      </button>
+      <button onClick={() => setReadingType('finance')}>
+        <FaPiggyBank /> การเงิน
+      </button>
+      <button onClick={() => setReadingType('health')}>
+        <FaFirstAid /> สุขภาพ
+      </button>
     </div>
   );
 }
