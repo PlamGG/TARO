@@ -8,8 +8,30 @@
   color: white;
 }
 
+.reading-types,
+.reading-frequency,
+.card-spreads {
+  margin-top: 20px;
+}
+
+.reading-types h2,
+.reading-frequency h2,
+.card-spreads h2 {
+  margin-bottom: 10px;
+}
+
+.reading-types button,
+.reading-frequency button,
+.card-spreads button {
+  margin: 5px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
 .reading {
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
   gap: 20px;
   margin-top: 20px;
