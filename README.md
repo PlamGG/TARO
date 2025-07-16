@@ -1,12 +1,55 @@
-# React + Vite
+# เว็บดูดวงไพ่ทาโรต์ (Tarot Reading Website)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+เว็บแอปพลิเคชันสำหรับดูดวงไพ่ทาโรต์ที่สร้างด้วย React และ Vite ที่มาพร้อมกับฟีเจอร์ที่ครบครันและดีไซน์ที่สวยงามลึกลับ
 
-Currently, two official plugins are available:
+## ฟีเจอร์หลัก
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+*   **ดูดวงไพ่ทาโรต์:**
+    *   เลือกประเภทการดูดวงได้ 4 ประเภท: ความรัก, การงาน, การเงิน, สุขภาพ
+    *   เลือกความถี่ในการดูดวงได้: รายวัน, รายเดือน
+    *   เลือกรูปแบบการวางไพ่ได้ 3 แบบ: 1 ใบ (ใช่/ไม่ใช่), 3 ใบ (อดีต-ปัจจุบัน-อนาคต), และ Celtic Cross (10 ใบ)
+*   **การเลือกไพ่แบบ Interactive:**
+    *   ผู้ใช้สามารถเลือกไพ่ได้ด้วยตัวเองจากสำรับที่คลี่ออกมา
+    *   แอนิเมชันการคลี่ไพ่และการเปิดไพ่ที่สวยงาม
+*   **คำทำนายที่ลึกซึ้ง:**
+    *   คำทำนายเฉพาะสำหรับไพ่แต่ละใบตามประเภทของคำถาม
+    *   การตีความภาพรวมของคำทำนายโดยพิจารณาจากองค์ประกอบต่างๆ ของไพ่
+*   **หน้าข้อมูลไพ่:**
+    *   ฐานข้อมูลไพ่ทาโรต์ครบทั้ง 78 ใบ พร้อมความหมายภาษาไทย
+*   **ดีไซน์ที่สวยงามและ Responsive:**
+    *   ธีมสีเข้มลึกลับพร้อมพื้นหลังดาวตก
+    *   รองรับการใช้งานในทุกขนาดหน้าจอ
 
-## Expanding the ESLint configuration
+## เทคโนโลยีที่ใช้
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+*   **Frontend:** React, Vite
+*   **Styling:** CSS
+*   **Icons:** React Icons
+
+## การติดตั้งและรันโปรเจค
+
+1.  **Clone a repository:**
+    ```bash
+    git clone https://github.com/your-username/your-repo-name.git
+    cd your-repo-name
+    ```
+
+2.  **Install dependencies:**
+    ```bash
+    npm install
+    ```
+
+3.  **Run the development server:**
+    ```bash
+    npm run dev
+    ```
+
+4.  เปิดเบราว์เซอร์ไปที่ `http://localhost:5173` (หรือ port อื่นๆ ที่แสดงใน terminal)
+
+## การมีส่วนร่วม
+
+หากคุณสนใจที่จะมีส่วนร่วมในการพัฒนาโปรเจคนี้ สามารถ fork a repository และสร้าง pull request ได้เลย!
+
+## License
+
+This project is licensed under the MIT License.

@@ -12,3 +12,10 @@ export function draw_cards(num_cards) {
 
   return drawn_cards;
 }
+
+export function getMeaning(card, readingType) {
+  if (card && card.meaning && card.meaning[readingType]) {
+    return card.meaning[readingType];
+  }
+  return card.meaning.general;
+}
