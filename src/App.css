@@ -5,18 +5,13 @@ body {
   color: #ffffff;
   font-family: 'Pridi', serif;
   margin: 0;
-  padding: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  padding: 20px;
   min-height: 100vh;
-  overflow: hidden;
-  position: relative;
+  box-sizing: border-box;
 }
 
-body::before {
-  content: '';
-  position: absolute;
+.stars-bg {
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
@@ -24,6 +19,7 @@ body::before {
   background: url('https://www.transparenttextures.com/patterns/stardust.png');
   animation: stars 20s linear infinite;
   opacity: 0.3;
+  z-index: -1;
 }
 
 @keyframes stars {
@@ -37,9 +33,12 @@ body::before {
 
 .App {
   text-align: center;
-  width: 90%;
-  max-width: 1200px;
+  width: 100%;
+  max-width: 1400px;
   margin: auto;
+  display: flex;
+  flex-direction: column;
+  min-height: calc(100vh - 40px);
 }
 
 .App-header {
@@ -50,13 +49,25 @@ body::before {
   margin-bottom: 20px;
 }
 
+.App-header nav {
+  margin-top: 15px;
+}
+
+main {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
 .reading-types,
 .reading-frequency,
 .card-spreads {
-  margin-top: 20px;
+  margin: 20px auto;
   padding: 20px;
   background-color: rgba(255, 255, 255, 0.05);
   border-radius: 10px;
+  max-width: 90%;
 }
 
 .reading-types h2,
@@ -90,8 +101,10 @@ button {
 button:hover {
   background-color: #ffd700;
   color: #1c2d35;
-  transform: scale(1.05);
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 4px 8px rgba(255, 215, 0, 0.3);
 }
+
 
 .reading {
   display: flex;
@@ -132,12 +145,49 @@ button:hover {
   font-size: 16px;
 }
 
+.card-info {
+  padding: 20px;
+}
+
+.card-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.card-info-item {
+  background-color: rgba(255, 255, 255, 0.05);
+  border: 1px solid #ffd700;
+  padding: 20px;
+  width: 220px;
+  border-radius: 15px;
+}
+
+.interpretation {
+  margin-top: 30px;
+  padding: 20px;
+  background-color: rgba(255, 255, 255, 0.05);
+  border-radius: 10px;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.interpretation h2 {
+  color: #ffd700;
+}
+
 @media (max-width: 768px) {
   .reading {
     gap: 20px;
   }
 
   .card {
+    width: 180px;
+  }
+
+  .card-info-item {
     width: 180px;
   }
 }
@@ -152,6 +202,10 @@ button:hover {
   }
 
   .card {
+    width: 90%;
+  }
+
+  .card-info-item {
     width: 90%;
   }
 }
