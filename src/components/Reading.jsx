@@ -1,10 +1,12 @@
 import React from 'react';
 import Card from './Card';
+import CardBack from './CardBack';
 import ReadingTypes from './ReadingTypes';
 import ReadingFrequency from './ReadingFrequency';
 import CardSpreads from './CardSpreads';
 import Interpretation from './Interpretation';
 import { draw_cards } from '../utils/divination';
+import './Reading.css';
 
 function getSpreadPositions(spread) {
   if (spread === 1) {
@@ -34,20 +36,29 @@ function Reading() {
   const [readingType, setReadingType] = React.useState(null);
   const [readingFrequency, setReadingFrequency] = React.useState(null);
   const [cardSpread, setCardSpread] = React.useState(null);
-  const [cards, setCards] = React.useState([]);
+  const [selectedIndices, setSelectedIndices] = React.useState([]);
+  const [drawnCards, setDrawnCards] = React.useState([]);
+  const [revealed, setRevealed] = React.useState(false);
 
-  const handleDraw = () => {
-    if (cardSpread) {
-      const drawn_cards = draw_cards(cardSpread);
-      setCards(drawn_cards);
+  const handleSelectCard = (index) => {
+    if (selectedIndices.length < cardSpread && !selectedIndices.includes(index)) {
+      setSelectedIndices([...selectedIndices, index]);
     }
+  };
+
+  const handleConfirm = () => {
+    const cards = draw_cards(cardSpread);
+    setDrawnCards(cards);
+    setRevealed(true);
   };
 
   const handleReset = () => {
     setReadingType(null);
     setReadingFrequency(null);
     setCardSpread(null);
-    setCards([]);
+    setSelectedIndices([]);
+    setDrawnCards([]);
+    setRevealed(false);
   };
 
   if (!readingType) {
@@ -64,16 +75,31 @@ function Reading() {
 
   const spreadPositions = getSpreadPositions(cardSpread);
 
+  if (!revealed) {
+    return (
+      <div className="card-selection">
+        <h2>กรุณาเลือกไพ่ {cardSpread} ใบ</h2>
+        <div className="card-spread">
+          {Array.from({ length: 78 }).map((_, index) => (
+            <CardBack
+              key={index}
+              onClick={() => handleSelectCard(index)}
+              isSelected={selectedIndices.includes(index)}
+            />
+          ))}
+        </div>
+        {selectedIndices.length === cardSpread && (
+          <button onClick={handleConfirm}>ยืนยัน</button>
+        )}
+      </div>
+    );
+  }
+
   return (
     <div>
-      <button onClick={handleDraw}>สุ่มไพ่</button>
       <button onClick={handleReset}>เริ่มต้นใหม่</button>
-      <button onClick={() => console.log('Reading saved:', { readingType, readingFrequency, cardSpread, cards })}>
-        บันทึกผล
-      </button>
-      <button onClick={() => console.log('Sharing reading...')}>แชร์ผล</button>
       <div className="reading">
-        {cards.map((card, index) => (
+        {drawnCards.map((card, index) => (
           <Card
             key={card.name}
             card={card}
@@ -81,7 +107,7 @@ function Reading() {
           />
         ))}
       </div>
-      {cards.length > 0 && <Interpretation cards={cards} />}
+      {drawnCards.length > 0 && <Interpretation cards={drawnCards} />}
     </div>
   );
 }
