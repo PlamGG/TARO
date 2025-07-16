@@ -104,10 +104,11 @@ function Reading() {
             key={card.name}
             card={card}
             position={spreadPositions[index]}
+            readingType={readingType}
           />
         ))}
       </div>
-      {drawnCards.length > 0 && <Interpretation cards={drawnCards} />}
+      {drawnCards.length > 0 && <Interpretation cards={drawnCards} readingType={readingType} />}
     </div>
   );
 }
