@@ -14,8 +14,15 @@ export function draw_cards(num_cards) {
 }
 
 export function getMeaning(card, readingType) {
-  if (card && card.meaning && card.meaning[readingType]) {
+  if (card && card.meaning && typeof card.meaning === 'object' && card.meaning[readingType]) {
     return card.meaning[readingType];
   }
-  return card.meaning.general;
+  if (card && card.meaning && typeof card.meaning === 'object' && card.meaning.general) {
+    return card.meaning.general;
+  }
+  // Fallback for old data structure
+  if (card && typeof card.meaning === 'string') {
+    return card.meaning;
+  }
+  return 'No meaning found.';
 }
